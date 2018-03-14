@@ -1,3 +1,4 @@
+require('babel-register');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
@@ -7,6 +8,11 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
+// const RateLimit = require('express-rate-limit');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config.babel');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const User = require('./models/user');
 
@@ -41,6 +47,31 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Webpack Server
+if (process.env.NODE_ENV !== 'production') {
+    const webpackCompiler = webpack(webpackConfig);
+    app.use(webpackDevMiddleware(webpackCompiler, {
+        publicPath: webpackConfig.output.publicPath,
+        stats: {
+            colors: true,
+            chunks: true,
+            'errors-only': true,
+        },
+    }));
+    app.use(webpackHotMiddleware(webpackCompiler, {
+        log: console.log,
+    }));
+}
+
+// Configure Rate Limiter
+// const apiLimiter = new RateLimit({
+//     windowMs: 1 * 60 * 1000, // 1 minute
+//     max: 50, // requests allowed
+//     delayMs: 0, // disabled
+// });
+// app.use('/api', apiLimiter);
+
 
 app.use('/api', api);
 app.use('/api/users', users);
