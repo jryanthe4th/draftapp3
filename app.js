@@ -1,14 +1,18 @@
 require('babel-register');
+const appConfig = require('./config.js');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const cookieParser = require('cookie-parser');
 const express = require('express');
+const expressSession = require('express-session');
 const favicon = require('serve-favicon');
+const helmet = require('helmet');
+const LocalStrategy = require('passport-local').Strategy;
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
-// const RateLimit = require('express-rate-limit');
+const RateLimit = require('express-rate-limit');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.babel');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -37,12 +41,28 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(compression());
+app.use(helmet());
 
 app.use(require('express-session')({
     secret: 'any random string can go here',
     resave: false,
     saveUninitialized: false,
 }));
+
+// Express Session
+const sessionValues = {
+    cookie: {},
+    name: 'sessionId',
+    resave: false,
+    saveUninitialized: true,
+    secret: appConfig.expressSession.secret,
+};
+if (app.get('env') === 'production') {
+    app.set('trust proxy', 1);
+    sessionValues.cookie.secure = true;
+}
+app.use(expressSession(sessionValues));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -65,12 +85,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Configure Rate Limiter
-// const apiLimiter = new RateLimit({
-//     windowMs: 1 * 60 * 1000, // 1 minute
-//     max: 50, // requests allowed
-//     delayMs: 0, // disabled
-// });
-// app.use('/api', apiLimiter);
+const apiLimiter = new RateLimit({
+    windowMs: 1 * 60 * 1000, // 1 minute
+    max: 50, // requests allowed
+    delayMs: 0, // disabled
+});
+app.use('/api', apiLimiter);
 
 
 app.use('/api', api);

@@ -1,7 +1,9 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
-// const CompressionPlugin = require('compression-webpack-plugin');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const OfflinePlugin = require('offline-plugin');
 
 const cssOutputLocation = process.env.NODE_ENV === 'production' ?
     'public/stylesheets/style-prod.css' :
@@ -22,6 +24,7 @@ const jsDevOutput = {
 const jsOutputLocation = process.env.NODE_ENV === 'production' ? jsProdOutput : jsDevOutput;
 
 module.exports = {
+    mode: 'development',
     context: resolve(__dirname, 'src'),
     entry: [
         './index.jsx',
@@ -48,54 +51,62 @@ module.exports = {
                     presets: ['es2015', 'es2017'],
                 },
             },
-            // {
-            //     test: /\.css$/,
-            //     use: ExtractTextPlugin.extract({
-            //         fallback: 'style-loader',
-            //         use: 'css-loader',
-            //     }),
-            // },
-            // {
-            //     test: /\.scss$/,
-            //     use: ExtractTextPlugin.extract({
-            //         use: [
-            //             {
-            //                 loader: 'css-loader',
-            //             },
-            //             {
-            //                 loader: 'sass-loader',
-            //             },
-            //         ],
-            //         fallback: 'style-loader',
-            //     }),
-            // },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader',
+                }),
+            },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                        },
+                        {
+                            loader: 'sass-loader',
+                        },
+                    ],
+                    fallback: 'style-loader',
+                }),
+            },
         ],
     },
     plugins: [
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        // new ExtractTextPlugin(cssOutputLocation),
+        new ExtractTextPlugin(cssOutputLocation),
+        new UglifyJsPlugin(),
+        // new OfflinePlugin({
+        //     caches: 'all',
+        //     AppCache: 'false',
+        //     ServiceWorker: {
+        //         minify: false,
+        //     },
+        // }),
     ],
 };
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin({
-        compress: {
-            warnings: false,
-            screw_ie8: true,
-            conditionals: true,
-            unused: true,
-            comparisons: true,
-            sequences: true,
-            dead_code: true,
-            evaluate: true,
-            if_return: true,
-            join_vars: true,
-        },
-        output: {
-            comments: false,
-        },
-    }));
+    // module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    //     compress: {
+    //         warnings: false,
+    //         screw_ie8: true,
+    //         conditionals: true,
+    //         unused: true,
+    //         comparisons: true,
+    //         sequences: true,
+    //         dead_code: true,
+    //         evaluate: true,
+    //         if_return: true,
+    //         join_vars: true,
+    //     },
+    //     output: {
+    //         comments: false,
+    //     },
+    // }));
 
     module.exports.plugins.push(new webpack.HashedModuleIdsPlugin());
     module.exports.plugins.push(
