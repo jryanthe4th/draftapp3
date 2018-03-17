@@ -2,7 +2,7 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // const OfflinePlugin = require('offline-plugin');
 
 const cssOutputLocation = process.env.NODE_ENV === 'production' ?
@@ -78,7 +78,7 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new ExtractTextPlugin(cssOutputLocation),
-        new UglifyJsPlugin(),
+        // new UglifyJsPlugin(),
         // new OfflinePlugin({
         //     caches: 'all',
         //     AppCache: 'false',

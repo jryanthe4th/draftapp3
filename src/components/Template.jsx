@@ -1,15 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+// import HeaderContainer from './shared/HeaderContainer';
+import HomePage from './home/HomePageContainer';
+
 export default function Template() {
     return (
-        <div className="wrapper">
-            <header>
-                <h1>Dynasty DraftBoard</h1>
-            </header>
-            <div className="content">
-                Content will eventually go here.
+        <Router>
+            <div className="wrapper">
+                <section className="page-content container-fluid">
+                    <Route exact path="/" component={HomePage} />
+                    <div>
+                        <h1>Dynasty DraftBoard</h1>
+                    </div>
+                </section>
             </div>
-        </div>
+        </Router>
     );
 }
