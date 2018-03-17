@@ -1,6 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import {
+    Collapse,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+} from 'reactstrap';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -21,7 +33,7 @@ export default class Header extends React.Component {
     render() {
         return (
             <header className="wrapper">
-                <Navbar light toggleable>
+                <Navbar toggleable>
                     <NavbarBrand tag={Link} to="/">NavbarBrand</NavbarBrand>
                     <NavbarToggler right onClick={this.toggleNavbar} />
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -32,6 +44,7 @@ export default class Header extends React.Component {
                             <NavItem>
                                 <NavLink tag={Link} to="/">Header.jsx Link B</NavLink>
                             </NavItem>
+
                         </Nav>
                     </Collapse>
                 </Navbar>

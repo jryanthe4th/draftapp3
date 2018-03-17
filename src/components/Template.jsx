@@ -12,8 +12,11 @@ export default function Template() {
                 <section className="page-content container-fluid">
                     <Route exact path="/" component={HomePage} />
                     <div>
-                        <h1>Template.jsx h1</h1>
+                        <h1>Template Content</h1>
                     </div>
+                    <footer>
+                        <p>This is the footer</p>
+                    </footer>
                 </section>
             </div>
         </Router>
