@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Jura');
+
+body {
+    background-color: #E5E8E8;
+    font-family: 'Jura', serif;
+}
+
+// Form submit button
+.form-submit-button {
+    background-color: transparent !important;
+    border-radius: 0px !important;
+    border-color: #29B6F6 !important;
+    color: #29B6F6 !important;
+    min-width: 200px;
+    font-weight: bold;
+
+    &:hover {
+        background-color: #29B6F6 !important;
+        color: black !important;
+    }
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+// All forms
+#form-wrapper {
+    text-align: center;
+    margin-top: 10%;
+}
+
+// Form inputs
+.input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.5px solid #CCC;
+    border-radius: 0px;
+
+    &:focus {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.form-control-feedback {
+    text-align: right;
+    font-size: 0.9em;
+    color: #EF5350;
+}
+
+#forgot-password {
+    margin-top: 10px;
+    a {
+        color: #29B6F6 !important;
+    }
+}

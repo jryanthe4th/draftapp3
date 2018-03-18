@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+.navbar {
+    font-family: 'Abel', serif;
+
+    a {
+        color: #9d9d9d !important;
+        font-size: 1.5em;
+    }
+
+    // NavBar NavLinks
+    .nav-link {
+        text-align: right;
+    }
+}

@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import Header from './Header';
 
 class HeaderContainer extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         return (
