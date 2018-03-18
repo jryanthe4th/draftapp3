@@ -7,7 +7,8 @@ import { render } from 'react-dom';
 // CSS from a module
 import 'bootstrap/dist/css/bootstrap.css';
 // CSS from a local file
-import './css/musiclist.scss';
+import './css/draftboard.scss';
+import './css/navbar.scss';
 
 // Default export from a local file
 import DevTools from './components/shared/DevTools';

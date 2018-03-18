@@ -10,8 +10,8 @@ export default function HomePage() {
                     Homepage paragraph
                 </p>
                 <ul>
-                    <li><h5><Link to="/">HomePage Link1</Link></h5></li>
-                    <li><h5><Link to="/">HomePage Link2</Link></h5></li>
+                    <li><h5><Link to="../account/signin">Sign In</Link></h5></li>
+                    <li><h5><Link to="../account/register">Sign Up</Link></h5></li>
                 </ul>
             </div>
         </div>
