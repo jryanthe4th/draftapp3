@@ -5,8 +5,20 @@ body {
     font-family: 'Jura', serif;
 }
 
+.homepage-container {
+    text-align: center;
+}
+
+#homepage-button-left {
+    margin-right: 2%;
+}
+
+#homepage-button-right {
+    margin-left: 2%
+}
+
 // Form submit button
-.form-submit-button {
+.primary-button {
     background-color: transparent !important;
     border-radius: 0px !important;
     border-color: #29B6F6 !important;

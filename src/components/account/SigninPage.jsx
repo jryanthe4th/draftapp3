@@ -1,6 +1,6 @@
 import React from 'react';
 import { AvForm, AvGroup, AvInput, AvFeedback } from 'availity-reactstrap-validation';
-import { Button, Label } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 export default class SigninPage extends React.Component {
@@ -77,7 +77,7 @@ export default class SigninPage extends React.Component {
                             />
                             <AvFeedback>Password required to sign in</AvFeedback>
                         </AvGroup>
-                        <Button className="form-submit-button">SIGN IN</Button>
+                        <Button className="primary-button">SIGN IN</Button>
                         <div id="forgot-password">
                             <span><Link to="/account/reset-password">Forgot password?</Link></span>
                         </div>
