@@ -4,7 +4,8 @@
 body {
     // background: linear-gradient(#a1c4fd, #c2e9fb);
     // background-repeat: no-repeat;
-    background-color: #E5E8E8;
+    // background-color: #1C2833;
+    background-color: #212F3D;
     font-family: 'Jura', serif;
 }
 
@@ -13,7 +14,7 @@ body {
     padding-right: 0px;
 }
 
-// Homepage jumbotron container
+// Homepage div container
 .homepage-container {
     //color: #29B6F6;
     text-align: center;
@@ -33,15 +34,6 @@ body {
     height: 65vh;
 }
 
-// Footer
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    color: #9d9d9d;
-}
-
 // Homepage button left
 #homepage-button-left {
     margin: 2%;
@@ -55,6 +47,7 @@ footer {
 // Form submit button
 .primary-button {
     background-color: transparent !important;
+
     border-radius: 0px !important;
     border-color: #29B6F6 !important;
     color: #29B6F6 !important;
@@ -74,13 +67,18 @@ footer {
 #form-wrapper {
     text-align: center;
     margin-top: 10%;
+    position: fixed;
+}
+
+.form-control {
+    color: #CCC !important;
 }
 
 // Form inputs
 .input {
     background-color: transparent;
     border: none;
-    border-bottom: 1.5px solid #CCC;
+    border-bottom: 1.5px solid #495057;
     border-radius: 0px;
 
     &:focus {
@@ -102,6 +100,15 @@ footer {
     a {
         color: #29B6F6 !important;
     }
+}
+
+// Footer
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #495057;
 }
 
 

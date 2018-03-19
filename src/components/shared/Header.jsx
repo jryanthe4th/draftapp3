@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Collapse, Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
+import { Button, Collapse, Nav, Navbar, NavbarBrand, NavItem, NavLink, DropdownItem } from 'reactstrap';
 
 // import '../../css/hamburgers/hamburgers.scss';
 
@@ -25,16 +25,17 @@ export default class Header extends React.Component {
             <header className="wrapper">
                 <Navbar className="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark">
                     <NavbarBrand tag={Link} to="/">DynastyDraftBoard</NavbarBrand>
-                    <Button className="navbar-toggler" type="button" onClick={this.toggleNavbar} >
+                    <Button className="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-toggler" onClick={this.toggleNavbar} >
                         <span className="navbar-toggler-icon" />
                     </Button>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="navbar-nav ml-auto" navbar>
+                            <DropdownItem divider />
                             <NavItem>
-                                <NavLink tag={Link} to="../account/signin">Sign In</NavLink>
+                                <NavLink onClick={this.toggleNavbar} data-toggle="collapse" tag={Link} to="../account/signin">Sign In</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink tag={Link} to="../account/register">Sign Up</NavLink>
+                                <NavLink onClick={this.toggleNavbar} data-toggle="collapse" tag={Link} to="../account/register">Sign Up</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
