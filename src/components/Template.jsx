@@ -10,7 +10,7 @@ export default function Template(props) {
     const { progress } = props;
     return (
         <Router>
-            <div className="wrapper">
+            <div className="template-wrapper">
                 <HeaderContainer />
                 <section className="page-content container-fluid">
                     <Route exact path="/" component={HomePage} />
@@ -22,7 +22,7 @@ export default function Template(props) {
                         </div>
                     </div>
                 </section>
-
+                <footer>&copy; 2018, DynastyDraftBoard, Inc.</footer>
             </div>
         </Router>
     );

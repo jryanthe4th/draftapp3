@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import Template from './Template';
 
 class TemplateContainer extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         return (
@@ -15,11 +15,11 @@ class TemplateContainer extends React.Component {
     }
 }
 
-// function mapStateToProps(state) {
-//     return {
-//         progress: state.progress,
-//         authentication: state.authentication,
-//     };
-// }
+function mapStateToProps(state) {
+    return {
+        progress: state.progress,
+        authentication: state.authentication,
+    };
+}
 
-export default connect()(TemplateContainer);
+export default connect(mapStateToProps)(TemplateContainer);

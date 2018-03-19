@@ -1,20 +1,55 @@
 @import url('https://fonts.googleapis.com/css?family=Jura');
 
+// Body tag
 body {
+    // background: linear-gradient(#a1c4fd, #c2e9fb);
+    // background-repeat: no-repeat;
     background-color: #E5E8E8;
     font-family: 'Jura', serif;
 }
 
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+// Homepage jumbotron container
 .homepage-container {
+    //color: #29B6F6;
     text-align: center;
+    // background: url("/images/lionhead5.png");
+    // background-repeat: no-repeat;
+    // background-position: center;
+    height: 100vh;
+    // background-color: #000000;
+    // background: linear-gradient(#a1c4fd, #c2e9fb);
+    // background-repeat: no-repeat;
 }
 
+.homepage-background-img {
+    background: url("/images/lionhead2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 65vh;
+}
+
+// Footer
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #9d9d9d;
+}
+
+// Homepage button left
 #homepage-button-left {
-    margin-right: 2%;
+    margin: 2%;
 }
 
+// Homepage buttton right
 #homepage-button-right {
-    margin-left: 2%
+    margin: 2%
 }
 
 // Form submit button
@@ -54,15 +89,20 @@ body {
     }
 }
 
+// Form validation text
 .form-control-feedback {
     text-align: right;
     font-size: 0.9em;
     color: #EF5350;
 }
 
+// Forgot password link - signin form
 #forgot-password {
     margin-top: 10px;
     a {
         color: #29B6F6 !important;
     }
 }
+
+
+//////////////////////////////////////////////

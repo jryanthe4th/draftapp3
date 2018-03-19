@@ -92,12 +92,12 @@ export default class RegisterPage extends React.Component {
                                 name="username"
                                 onChange={this.handleInputChange}
                                 onKeyPress={this.handleKeyPress}
-                                placeholder="User Name"
+                                placeholder="Username"
                                 required
                                 type="text"
                                 value={this.state.username}
                             />
-                            <AvFeedback>User name required to register</AvFeedback>
+                            <AvFeedback>Username required to register</AvFeedback>
                         </AvGroup>
 
                         <AvGroup>
