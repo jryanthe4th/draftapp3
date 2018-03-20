@@ -1,7 +1,6 @@
 import React from 'react';
 import { AvForm, AvGroup, AvInput, AvFeedback } from 'availity-reactstrap-validation';
-import { Button, Label } from 'reactstrap';
-import FloatingLabel from 'floating-label-react';
+import { Button } from 'reactstrap';
 
 export default class RegisterPage extends React.Component {
     constructor(props) {
@@ -129,7 +128,6 @@ export default class RegisterPage extends React.Component {
                             />
                             <AvFeedback>Last name required to register</AvFeedback>
                         </AvGroup>
-
                         <Button className="primary-button" onClick={this.compileFormData}>CREATE ACCOUNT</Button>
                     </AvForm>
                 </div>

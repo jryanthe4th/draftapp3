@@ -21,8 +21,9 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const User = require('./models/user');
 
 // Route Files
-const api = require('./routes/api/index');
 const index = require('./routes/index');
+const api = require('./routes/api/index');
+const authentication = require('./routes/api/authentication');
 const users = require('./routes/api/users');
 
 const app = express();
@@ -44,11 +45,11 @@ app.use(cookieParser());
 app.use(compression());
 app.use(helmet());
 
-app.use(require('express-session')({
-    secret: 'any random string can go here',
-    resave: false,
-    saveUninitialized: false,
-}));
+// app.use(require('express-session')({
+//     secret: 'any random string can go here',
+//     resave: false,
+//     saveUninitialized: false,
+// }));
 
 // Express Session
 const sessionValues = {
@@ -92,8 +93,8 @@ const apiLimiter = new RateLimit({
 });
 app.use('/api', apiLimiter);
 
-
 app.use('/api', api);
+app.use('/api/authentication', authentication);
 app.use('/api/users', users);
 app.use('/*', index);
 
