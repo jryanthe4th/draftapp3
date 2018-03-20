@@ -4,10 +4,11 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const User = new Schema({
-    username: String,
-    password: { type: String, select: false },
+    email: String,
     firstName: String,
     lastName: String,
+    passwordReset: { type: String, select: false },
+    username: String,
 });
 
 User.plugin(passportLocalMongoose);

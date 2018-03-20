@@ -23,7 +23,7 @@ const renderApp = (Component) => {
     render(
         <AppContainer>
             <Provider store={Store}>
-                <div>
+                <div className="index-div">
                     <Component />
                     <DevTools />
                 </div>

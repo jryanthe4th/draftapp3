@@ -15,14 +15,14 @@ router.post('/find', (req, res, next) => {
         if (!user) {
             return res.json({ error: 'Username not found' });
         }
-        const { username, albums, artists } = user;
-        return res.json({ username, albums, artists });
+        const { username } = user;
+        return res.json({ username });
     });
 });
 
 // GET User list
 router.get('/list', (req, res, next) => {
-    // find all matching users, which in this case is all of them
+    // find all matching users
     User.find((err, users) => {
         if (err) {
             // if something is broken, send an error
