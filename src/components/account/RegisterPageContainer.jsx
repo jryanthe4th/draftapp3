@@ -19,7 +19,7 @@ export class RegisterPageContainer extends React.Component {
     }
 
     render() {
-        const { isLoggedIn, registrationSucceeded } = this.props.authentication;
+        const { isSignedIn, registrationSucceeded } = this.props.authentication;
 
         // forward to a success RegisterPage
         if (registrationSucceeded) {
@@ -29,8 +29,8 @@ export class RegisterPageContainer extends React.Component {
         }
 
         // User needs to be logged out to register
-        if (isLoggedIn) {
-            return (<p>Log out before creating a new account</p>);
+        if (isSignedIn) {
+            return (<p className="paragraph-text">Sign out before creating a new account</p>);
         }
 
         // otherwise, display the form

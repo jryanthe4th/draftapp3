@@ -24,14 +24,14 @@ router.get('/checksession', (req, res) => {
     return res.send(JSON.stringify({}));
 });
 
-// GET to /logout
-router.get('/logout', (req, res) => {
+// GET to /signout
+router.get('/signout', (req, res) => {
     req.logout();
     return res.send(JSON.stringify(req.user));
 });
 
-// POST to /login
-router.post('/login', async (req, res) => {
+// POST to /signin
+router.post('/signin', async (req, res) => {
     // look up the user by their email
     const query = User.findOne({ email: req.body.email });
     const foundUser = await query.exec();
@@ -40,13 +40,13 @@ router.post('/login', async (req, res) => {
     if (foundUser) { req.body.username = foundUser.username; }
 
     passport.authenticate('local')(req, res, () => {
-        // if logged in, we should have user info to send back
+        // if signed in, we should have user info to send back
         if (req.user) {
             return res.send(JSON.stringify(req.user));
         }
 
         // otherwise, return an error
-        return res.send(JSON.stringify({ error: 'There was an error loggin in' }));
+        return res.send(JSON.stringify({ error: 'There was an error signing in' }));
     });
 });
 
@@ -78,9 +78,9 @@ router.post('/register', async (req, res) => {
             if (err) {
                 return res.send(JSON.stringify({ error: err.message }));
             }
-            // otherwise, log them in
+            // otherwise, sign them in
             return passport.authenticate('local')(req, res, () => {
-                // if logged in, we should have User info to send back
+                // if signed in, we should have User info to send back
                 if (req.user) {
                     return res.send(JSON.stringify(req.user));
                 }

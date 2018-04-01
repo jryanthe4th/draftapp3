@@ -77,8 +77,8 @@ export default class SigninPage extends React.Component {
                             />
                             <AvFeedback>Password required to sign in</AvFeedback>
                         </AvGroup>
-                        <Button className="primary-button">SIGN IN</Button>
-                        <div id="forgot-password">
+                        <Button className="primary-button" onClick={this.compileFormData}>SIGN IN</Button>
+                        <div id="link">
                             <span><Link to="/account/reset-password">Forgot password?</Link></span>
                         </div>
                     </AvForm>

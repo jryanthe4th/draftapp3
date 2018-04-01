@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logUserOut } from '../../actions/authentication';
+import { signUserOut } from '../../actions/authentication';
 
 import Header from './Header';
 
@@ -8,18 +8,18 @@ class HeaderContainer extends React.Component {
     constructor(props) {
         super(props);
 
-        this.logUserOutFunction = this.logUserOutFunction.bind(this);
+        this.signUserOutFunction = this.signUserOutFunction.bind(this);
     }
 
-    logUserOutFunction() {
+    signUserOutFunction() {
         const { dispatch } = this.props;
-        dispatch(logUserOut());
+        dispatch(signUserOut());
     }
 
     render() {
         const { authentication } = this.props;
         return (
-            <Header authentication={authentication} logUserOutFunction={this.logUserOutFunction} />
+            <Header authentication={authentication} signUserOutFunction={this.signUserOutFunction} />
         );
     }
 }

@@ -58,8 +58,8 @@ export default class ResetPasswordPage extends React.Component {
         if (isPasswordReset) {
             return (
                 <div className="row justify-content-center">
-                    <div className="col-10 col-sm-7 col-md-5 col-lg-4">
-                        <p>
+                    <div className="col-10 col-sm-7 col-md-5 col-lg-4" id="form-wrapper">
+                        <p className="paragraph-text">
                             An email has been sent to the address you provided containing a link to reset
                             your password. Please click that link to proceed with setting a new password.
                         </p>
@@ -73,27 +73,27 @@ export default class ResetPasswordPage extends React.Component {
 
         return (
             <div className="row justify-content-center">
-                <div className="col-10 col-sm-7 col-md-5 col-lg-4">
-                    <p>
+                <div className="col-10 col-sm-7 col-md-5 col-lg-4" id="form-wrapper">
+                    <p className="paragraph-text">
                         If you‘d like to reset your password, please enter your email here
                         and a link to do so will be sent to the address you enter.
                     </p>
                     <AvForm onValidSubmit={this.handleValidSubmit}>
                         <AvGroup>
-                            <Label for="userEmail">Email</Label>
                             <AvInput
+                                className="input"
                                 id="userEmail"
                                 name="email"
                                 onChange={this.handleEmailChange}
                                 onKeyPress={this.handleKeyPress}
-                                placeholder="noreply@musiclist.com"
+                                placeholder="Email"
                                 required
                                 type="email"
                                 value={this.state.email}
                             />
                             <AvFeedback>A valid email is required to reset your password.</AvFeedback>
                         </AvGroup>
-                        <Button color="primary">Reset Password</Button>
+                        <Button className="primary-button">Reset Password</Button>
                     </AvForm>
                 </div>
             </div>

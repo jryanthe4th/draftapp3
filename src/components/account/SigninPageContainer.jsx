@@ -19,12 +19,16 @@ export class SigninPageContainer extends React.Component {
     }
 
     render() {
-        const { authentication } = this.props;
+        const { authentication, isSignedIn } = this.props;
 
         if (authentication.isSignedIn) {
             return (
                 <Redirect to="/" />
             );
+        }
+
+        if (isSignedIn) {
+            return (<p className="paragraph-text">Sign out before attempting to sign into another account</p>);
         }
 
         return (

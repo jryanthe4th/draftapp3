@@ -1,8 +1,8 @@
 const initialState = {
     firstName: '',
     id: '',
-    isLoggedIn: false,
-    isLoggingIn: false,
+    isSignedIn: false,
+    isSigningIn: false,
     isPasswordChanged: false,
     isPasswordReset: false,
     lastName: '',
@@ -12,29 +12,29 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-    case 'AUTHENTICATION_LOGIN_ATTEMPT': {
+    case 'AUTHENTICATION_SIGNIN_ATTEMPT': {
         const newState = Object.assign({}, state);
-        newState.isLoggingIn = true;
+        newState.isSigningIn = true;
         return newState;
     }
-    case 'AUTHENTICATION_LOGIN_FAILURE':
+    case 'AUTHENTICATION_SIGNIN_FAILURE':
     case 'AUTHENTICATION_SESSION_CHECK_FAILURE':
-    case 'AUTHENTICATION_LOGOUT_SUCCESS': {
+    case 'AUTHENTICATION_SIGNOUT_SUCCESS': {
         const newState = Object.assign({}, initialState);
         return newState;
     }
-    case 'AUTHENTICATION_LOGIN_SUCCESS':
+    case 'AUTHENTICATION_SIGNIN_SUCCESS':
     case 'AUTHENTICATION_SESSION_CHECK_SUCCESS': {
         const newState = Object.assign({}, state);
         newState.firstName = action.json.firstName;
         newState.id = action.json._id;
-        newState.isLoggedIn = true;
-        newState.isLoggingIn = false;
+        newState.isSignedIn = true;
+        newState.isSigningIn = false;
         newState.lastName = action.json.lastName;
         newState.username = action.json.username;
         return newState;
     }
-    case 'AUTHENTICATION_LOGOUT_FAILURE':
+    case 'AUTHENTICATION_SIGNOUT_FAILURE':
     case 'AUTHENTICATION_REGISTRATION_FAILURE': {
         return state;
     }

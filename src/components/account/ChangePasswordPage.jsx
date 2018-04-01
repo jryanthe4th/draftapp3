@@ -40,16 +40,16 @@ export default class ChangePasswordPage extends React.Component {
     }
 
     render() {
-        const { isPasswordChanged, isLoggedIn } = this.props.authentication;
+        const { isPasswordChanged, isSignedIn } = this.props.authentication;
 
         // If they just changed a password and AREN'T logged in
-        if (isPasswordChanged && !isLoggedIn) {
+        if (isPasswordChanged && !isSignedIn) {
             return (
                 <div className="row justify-content-center">
-                    <div className="col-10 col-sm-7 col-md-5 col-lg-4">
-                        <p>
+                    <div className="col-10 col-sm-7 col-md-5 col-lg-4" id="form-wrapper">
+                        <p className="paragraph-text" id="link">
                             Your changes have been saved, and you can
-                            now <Link to="/account/login">log in</Link> with
+                            now <Link to="/account/signin">SIGN IN</Link> with
                             the new password.
                         </p>
                     </div>
@@ -58,11 +58,11 @@ export default class ChangePasswordPage extends React.Component {
         }
 
         // If they just changed a password and ARE logged in
-        if (isPasswordChanged && isLoggedIn) {
+        if (isPasswordChanged && isSignedIn) {
             return (
                 <div className="row justify-content-center">
                     <div className="col-10 col-sm-7 col-md-5 col-lg-4">
-                        <p>
+                        <p className="paragraph-text">
                             Your new password has been saved.
                         </p>
                     </div>
@@ -72,8 +72,8 @@ export default class ChangePasswordPage extends React.Component {
 
         return (
             <div className="row justify-content-center">
-                <div className="col-10 col-sm-7 col-md-5 col-lg-4">
-                    <p>
+                <div className="col-10 col-sm-7 col-md-5 col-lg-4" id="form-wrapper">
+                    <p className="paragraph-text">
                       Please enter and confirm a new password below to change the
                       password associated with this email address.
                     </p>
@@ -81,14 +81,14 @@ export default class ChangePasswordPage extends React.Component {
                     <AvForm onValidSubmit={this.handleValidSubmit}>
 
                         <AvGroup>
-                            <Label for="password">Password</Label>
                             <AvInput
+                                className="input"
                                 id="password"
                                 minLength="8"
                                 name="password"
                                 onChange={this.handleInputChange}
                                 onKeyPress={this.handleKeyPress}
-                                placeholder="password"
+                                placeholder="Password"
                                 required
                                 type="password"
                                 value={this.state.password}
@@ -97,8 +97,8 @@ export default class ChangePasswordPage extends React.Component {
                         </AvGroup>
 
                         <AvGroup>
-                            <Label for="password">Confirm Password</Label>
                             <AvInput
+                                className="input"
                                 id="passwordCheck"
                                 minLength="8"
                                 name="passwordCheck"
@@ -113,7 +113,7 @@ export default class ChangePasswordPage extends React.Component {
                             <AvFeedback>Passwords must match</AvFeedback>
                         </AvGroup>
 
-                        <Button color="primary">Change Password</Button>
+                        <Button className="primary-button">Change Password</Button>
 
                     </AvForm>
                 </div>
