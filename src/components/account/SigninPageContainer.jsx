@@ -27,10 +27,6 @@ export class SigninPageContainer extends React.Component {
             );
         }
 
-        if (isSignedIn) {
-            return (<p className="paragraph-text">Sign out before attempting to sign into another account</p>);
-        }
-
         return (
             <div>
                 <SigninPage signinFunction={this.signUserInFunction} />

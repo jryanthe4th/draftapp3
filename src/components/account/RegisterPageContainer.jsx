@@ -30,7 +30,10 @@ export class RegisterPageContainer extends React.Component {
 
         // User needs to be logged out to register
         if (isSignedIn) {
-            return (<p className="paragraph-text">Sign out before creating a new account</p>);
+            // return (<p className="paragraph-text">Sign out before creating a new account</p>);
+            return (
+                <Redirect to="/" />
+            );
         }
 
         // otherwise, display the form
