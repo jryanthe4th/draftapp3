@@ -6,6 +6,10 @@
     a {
         color: #9d9d9d !important;
         font-size: 1em;
+
+        &:hover {
+            color: #CCC !important;
+        }
     }
 
     // NavBar NavLinks

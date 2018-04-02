@@ -42,7 +42,7 @@ export default class Header extends React.Component {
         return (
             <Nav className="ml-auto" navbar>
                 <NavItem>
-                    <NavLink tag={Link} to="../account/dashboard">Dashboard</NavLink>
+                    <NavLink tag={Link} to="../dashboard">Dashboard</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink onClick={this.signOutClick} tag={Link} to="/signout">Sign Out</NavLink>
@@ -72,11 +72,11 @@ export default class Header extends React.Component {
                             <NavItem>
                                 <NavLink onClick={this.toggleNavbar} tag={Link} to="../account/register">Sign Up</NavLink>
                             </NavItem> */}
-                            { username && username !== '' ?
+                            {/* { username && username !== '' ?
                                 <NavItem>
                                     <NavLink tag={Link} to="/dashboard2">Dashboard2</NavLink>
                                 </NavItem>
-                                : null }
+                                : null } */}
                         </Nav>
                         { isSignedIn ? this.renderGreeting(firstName) : renderSignin() }
                     </Collapse>

@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Jura');
 
+// Template.jsx top-level div
+.template-wrapper {
+    background-color: #212F3D;
+    height: 100vh;
+}
+
 // Body tag
 body {
     // background: linear-gradient(#a1c4fd, #c2e9fb);
     // background-repeat: no-repeat;
     // background-color: #1C2833;
-    background-color: #212F3D;
+    // background-color: #212F3D;
     font-family: 'Jura', serif;
 }
 
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
+    // background-color: yellow !important;
 }
 
 // Homepage div container
@@ -21,7 +28,7 @@ body {
     // background: url("/images/lionhead5.png");
     // background-repeat: no-repeat;
     // background-position: center;
-    height: 100vh;
+    // height: 100vh;
     // background-color: #000000;
     // background: linear-gradient(#a1c4fd, #c2e9fb);
     // background-repeat: no-repeat;
@@ -64,6 +71,8 @@ body {
     }
     &:focus {
         box-shadow: none !important;
+        background-color: #29B6F6 !important;
+        color: black !important;
     }
 }
 

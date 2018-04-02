@@ -19,7 +19,7 @@ export default function Template(props) {
         <Router>
             <div className="template-wrapper">
                 <HeaderContainer username="anonymous" authentication={authentication} />
-                <section className="page-content container-fluid">
+                <div className="page-content container-fluid">
                     <ErrorBox />
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/account/signin" component={SigninPage} />
@@ -33,7 +33,7 @@ export default function Template(props) {
                             <div className="loader">Loading...</div>
                         </div>
                     </div>
-                </section>
+                </div>
                 <footer>&copy; 2018, DynastyDraftBoard, Inc.</footer>
             </div>
         </Router>
