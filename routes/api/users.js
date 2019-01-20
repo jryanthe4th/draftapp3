@@ -9,13 +9,18 @@ const User = require('../../models/user');
 router.post('/find', (req, res, next) => {
     // get the requested user
     User.findOne({ username: req.body.username }, (err, user) => {
+        if (req.user) {
+            return res.send(JSON.stringify(req.user));
+        }
         if (err) {
             return res.json({ error: err });
         }
+        console.log('--user:', user);
         if (!user) {
             return res.json({ error: 'Username not found' });
         }
         const { username } = user;
+        console.log('--user:', user);
         return res.json({ username });
     });
 });

@@ -7,8 +7,6 @@ export default function reducer(state = initialState, action) {
     case 'AUTHENTICATION_SIGNIN_SUCCESS':
     case 'AUTHENTICATION_SESSION_CHECK_SUCCESS': {
         const newState = Object.assign({}, state);
-        newState.albums = action.json.albums;
-        newState.artists = action.json.artists;
         return newState;
     }
     default: {
