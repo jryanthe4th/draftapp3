@@ -23,7 +23,7 @@ export class SigninPageContainer extends React.Component {
 
         if (authentication.isSignedIn) {
             return (
-                <Redirect to="/" />
+                <Redirect to="/dashboard" />
             );
         }
 

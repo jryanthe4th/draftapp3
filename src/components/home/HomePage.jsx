@@ -1,19 +1,42 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-export default function HomePage() {
-    return (
-        <div className="row">
-            <div className="col-sm-12 col-md-8">
-                <h1>HomePage Content</h1>
-                <p>
-                    Homepage paragraph
-                </p>
-                <ul>
-                    <li><h5><Link to="../account/signin">Sign In</Link></h5></li>
-                    <li><h5><Link to="../account/register">Sign Up</Link></h5></li>
-                </ul>
+export default class HomePage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        // Bound functions
+        this.toggleNavOpen = this.toggleNavOpen.bind(this);
+
+        // Component state
+        this.state = {
+            navOpen: false
+        };
+    }
+
+    // Update state as toggleNavOpen value changes
+    toggleNavOpen(e) {
+        this.setState({ navOpen: true });
+    }
+
+    render() {
+        return (
+            <div className="homepage-container">
+                <div className="homepage-background-img" />
+                <div>
+                    <Button
+                        className="primary-button"
+                        id="homepage-button-left"
+                        tag={Link}
+                        to="../account/signin"
+                        onClick={this.toggleNavOpen}
+                    >
+                        SIGN IN
+                    </Button>
+                    <Button className="primary-button" id="homepage-button-right" tag={Link} to="../account/register">SIGN UP</Button>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }

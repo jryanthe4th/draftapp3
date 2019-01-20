@@ -1,13 +1,71 @@
 @import url('https://fonts.googleapis.com/css?family=Jura');
 
+// Template.jsx top-level div
+.template-wrapper {
+    background-color: #212F3D;
+    height: 100vh;
+}
+
+// Body tag
 body {
-    background-color: #E5E8E8;
+    // background: linear-gradient(#a1c4fd, #c2e9fb);
+    // background-repeat: no-repeat;
+    // background-color: #1C2833;
+    // background-color: #212F3D;
     font-family: 'Jura', serif;
+    color: #9d9d9d;
+}
+
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+    // height: 50vh;
+    // background-color: yellow !important;
+}
+
+.error-box {
+    // height: 20vh;
+}
+
+// Homepage div container
+.homepage-container {
+    //color: #29B6F6;
+    text-align: center;
+    // background: url("/images/lionhead5.png");
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // height: 100vh;
+    // background-color: #000000;
+    // background: linear-gradient(#a1c4fd, #c2e9fb);
+    // background-repeat: no-repeat;
+}
+
+.homepage-background-img {
+    background: url("/images/lionhead2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    // background-size: contain;
+    height: 65vh;
+}
+
+// Homepage button left
+#homepage-button-left {
+    margin: 2%;
+}
+
+// Homepage buttton right
+#homepage-button-right {
+    margin: 2%
+}
+
+.paragraph-text {
+    color: #9d9d9d;
 }
 
 // Form submit button
-.form-submit-button {
+.primary-button {
     background-color: transparent !important;
+
     border-radius: 0px !important;
     border-color: #29B6F6 !important;
     color: #29B6F6 !important;
@@ -20,6 +78,8 @@ body {
     }
     &:focus {
         box-shadow: none !important;
+        background-color: #29B6F6 !important;
+        color: black !important;
     }
 }
 
@@ -27,13 +87,18 @@ body {
 #form-wrapper {
     text-align: center;
     margin-top: 10%;
+    position: fixed;
+}
+
+.form-control {
+    color: #CCC !important;
 }
 
 // Form inputs
 .input {
     background-color: transparent;
     border: none;
-    border-bottom: 1.5px solid #CCC;
+    border-bottom: 1.5px solid #495057;
     border-radius: 0px;
 
     &:focus {
@@ -42,15 +107,29 @@ body {
     }
 }
 
+// Form validation text
 .form-control-feedback {
     text-align: right;
     font-size: 0.9em;
     color: #EF5350;
 }
 
-#forgot-password {
+// Forgot password link - signin form
+#link {
     margin-top: 10px;
     a {
         color: #29B6F6 !important;
     }
 }
+
+// Footer
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #495057;
+}
+
+
+//////////////////////////////////////////////

@@ -5,11 +5,19 @@
 
     a {
         color: #9d9d9d !important;
-        font-size: 1.5em;
+        font-size: 1em;
+
+        &:hover {
+            color: #CCC !important;
+        }
     }
 
     // NavBar NavLinks
     .nav-link {
         text-align: right;
     }
+}
+
+.dropdown-divider {
+    border-top: 1px solid #495057;
 }

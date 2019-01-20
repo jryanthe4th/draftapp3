@@ -1,7 +1,6 @@
 import React from 'react';
 import { AvForm, AvGroup, AvInput, AvFeedback } from 'availity-reactstrap-validation';
-import { Button, Label } from 'reactstrap';
-import FloatingLabel from 'floating-label-react';
+import { Button } from 'reactstrap';
 
 export default class RegisterPage extends React.Component {
     constructor(props) {
@@ -53,7 +52,6 @@ export default class RegisterPage extends React.Component {
         return (
             <div className="row justify-content-center">
                 <div className="col-10 col-sm-7 col-md-5 col-lg-4" id="form-wrapper">
-                    <h3>Create Your Account</h3>
                     <AvForm onValidSubmit={this.handleValidSubmit}>
                         <AvGroup>
                             <AvInput
@@ -93,12 +91,12 @@ export default class RegisterPage extends React.Component {
                                 name="username"
                                 onChange={this.handleInputChange}
                                 onKeyPress={this.handleKeyPress}
-                                placeholder="User Name"
+                                placeholder="Username"
                                 required
                                 type="text"
                                 value={this.state.username}
                             />
-                            <AvFeedback>User name required to register</AvFeedback>
+                            <AvFeedback>Username required to register</AvFeedback>
                         </AvGroup>
 
                         <AvGroup>
@@ -130,8 +128,7 @@ export default class RegisterPage extends React.Component {
                             />
                             <AvFeedback>Last name required to register</AvFeedback>
                         </AvGroup>
-
-                        <Button className="form-submit-button" onClick={this.compileFormData}>CREATE ACCOUNT</Button>
+                        <Button className="primary-button" onClick={this.compileFormData}>CREATE ACCOUNT</Button>
                     </AvForm>
                 </div>
             </div>
