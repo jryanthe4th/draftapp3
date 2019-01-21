@@ -6,11 +6,11 @@ import ProgressReducer from '../reducers/progress';
 import UserReducer from '../reducers/user';
 
 const reducers = {
-    authentication: AuthenticationReducer,
-    dashboard: DashboardReducer,
-    error: ErrorReducer,
-    progress: ProgressReducer,
-    user: UserReducer,
+  authentication: AuthenticationReducer,
+  dashboard: DashboardReducer,
+  error: ErrorReducer,
+  progress: ProgressReducer,
+  user: UserReducer,
 };
 
 export default combineReducers(reducers);
