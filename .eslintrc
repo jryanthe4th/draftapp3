@@ -1,34 +1,35 @@
 {
-    "extends": "airbnb",
-    "plugins": ["jest"],
-    "env": {
-        "jest/globals": true,
-        "browser": true,
-        "node": true,
-    },
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "rules": {
-        "no-unused-vars": ["error", {"argsIgnorePattern": "next" }],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true }],
-        "react/prop-types": [0],
-        "indent": [2, 4],
-        "no-tabs": 0,
-        "react/jsx-indent": [0, 4],
-        "no-underscore-dangle": "off",
-        "react/jsx-indent-props": ["error", 4],
-        "function-paren-newline": "off",
-        "max-len": "off",
-        "no-console": "off",
-        "for-direction": "off",
-        "getter-return": "off",
-        "no-buffer-constructor": "off",
-        "semi-style": "off",
-        "switch-colon-spacing": "off",
+  "extends": "airbnb",
+  "plugins": ["jest"],
+  "env": {
+    "jest/globals": true,
+    "browser": true,
+    "node": true,
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "rules": {
+    "no-unused-vars": ["error", {"argsIgnorePattern": "next" }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true }],
+    "react/prop-types": [0],
+    "indent": [2, 2],
+    "no-tabs": 0,
+    "react/jsx-indent": [0, 2],
+    "no-underscore-dangle": "off",
+    "react/jsx-indent-props": ["error", 2],
+    "function-paren-newline": "off",
+    "max-len": "off",
+    "no-console": "off",
+    "for-direction": "off",
+    "getter-return": "off",
+    "no-buffer-constructor": "off",
+    "semi-style": "off",
+    "switch-colon-spacing": "off",
+    "jsx-quotes": ["error", "prefer-single"],
+  }
 }

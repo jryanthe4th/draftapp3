@@ -6,39 +6,39 @@ import { signUserIn } from '../../actions/authentication';
 import SigninPage from './SigninPage';
 
 export class SigninPageContainer extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        // Bound functions
-        this.signUserInFunction = this.signUserInFunction.bind(this);
+    // Bound functions
+    this.signUserInFunction = this.signUserInFunction.bind(this);
+  }
+
+  signUserInFunction(userData) {
+    const { dispatch } = this.props;
+    dispatch(signUserIn(userData));
+  }
+
+  render() {
+    const { authentication } = this.props;
+
+    if (authentication.isSignedIn) {
+      return (
+        <Redirect to='/dashboard' />
+      );
     }
 
-    signUserInFunction(userData) {
-        const { dispatch } = this.props;
-        dispatch(signUserIn(userData));
-    }
-
-    render() {
-        const { authentication } = this.props;
-
-        if (authentication.isSignedIn) {
-            return (
-                <Redirect to="/dashboard" />
-            );
-        }
-
-        return (
-            <div>
-                <SigninPage signinFunction={this.signUserInFunction} />
-            </div>
-        );
-    }
+    return (
+      <div>
+        <SigninPage signinFunction={this.signUserInFunction} />
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-        authentication: state.authentication,
-    };
+  return {
+    authentication: state.authentication,
+  };
 }
 
 export default connect(mapStateToProps)(SigninPageContainer);

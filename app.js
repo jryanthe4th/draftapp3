@@ -53,15 +53,15 @@ app.use(helmet());
 
 // Express Session
 const sessionValues = {
-    cookie: {},
-    name: 'sessionId',
-    resave: false,
-    saveUninitialized: true,
-    secret: appConfig.expressSession.secret,
+  cookie: {},
+  name: 'sessionId',
+  resave: false,
+  saveUninitialized: true,
+  secret: appConfig.expressSession.secret,
 };
 if (app.get('env') === 'production') {
-    app.set('trust proxy', 1);
-    sessionValues.cookie.secure = true;
+  app.set('trust proxy', 1);
+  sessionValues.cookie.secure = true;
 }
 app.use(expressSession(sessionValues));
 
@@ -71,25 +71,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Webpack Server
 if (process.env.NODE_ENV !== 'production') {
-    const webpackCompiler = webpack(webpackConfig);
-    app.use(webpackDevMiddleware(webpackCompiler, {
-        publicPath: webpackConfig.output.publicPath,
-        stats: {
-            colors: true,
-            chunks: true,
-            'errors-only': true,
-        },
-    }));
-    app.use(webpackHotMiddleware(webpackCompiler, {
-        log: console.log,
-    }));
+  const webpackCompiler = webpack(webpackConfig);
+  app.use(webpackDevMiddleware(webpackCompiler, {
+    publicPath: webpackConfig.output.publicPath,
+    stats: {
+      colors: true,
+      chunks: true,
+      'errors-only': true,
+    },
+  }));
+  app.use(webpackHotMiddleware(webpackCompiler, {
+    log: console.log,
+  }));
 }
 
 // Configure Rate Limiter
 const apiLimiter = new RateLimit({
-    windowMs: 1 * 60 * 1000, // 1 minute
-    max: 50, // requests allowed
-    delayMs: 0, // disabled
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 50, // requests allowed
+  delayMs: 0, // disabled
 });
 app.use('/api', apiLimiter);
 
@@ -105,20 +105,20 @@ passport.deserializeUser(User.deserializeUser());
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // Error handler
 app.use((err, req, res, next) => {
-    // Ret locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // Ret locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // Render the error page
-    res.status(err.status || 500);
-    res.render('error');
+  // Render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 module.exports = app;

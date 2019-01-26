@@ -20,23 +20,23 @@ import TemplateContainer from './components/TemplateContainer';
 const Store = configureStore();
 
 const renderApp = (Component) => {
-    render(
-        <AppContainer>
-            <Provider store={Store}>
-                <div className="index-div">
-                    <Component />
-                    <DevTools />
-                </div>
-            </Provider>
-        </AppContainer>,
-        document.querySelector('#react-app'),
-    );
+  render(
+    <AppContainer>
+      <Provider store={Store}>
+        <div className='index-div'>
+          <Component />
+          <DevTools />
+        </div>
+      </Provider>
+    </AppContainer>,
+    document.querySelector('#react-app'),
+  );
 };
 
 renderApp(TemplateContainer);
 
 if (module && module.hot) {
-    module.hot.accept('./components/TemplateContainer', () => {
-        renderApp(TemplateContainer);
-    });
+  module.hot.accept('./components/TemplateContainer', () => {
+    renderApp(TemplateContainer);
+  });
 }

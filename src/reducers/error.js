@@ -1,27 +1,27 @@
 const initialState = {
-    isError: false,
-    error: {},
+  isError: false,
+  error: {},
 };
 
 export default function reducer(state = initialState, action) {
-    switch (action.type) {
-    case 'AUTHENTICATION_SIGNIN_FAILURE':
-    case 'AUTHENTICATION_SIGNOUT_FAILURE':
-    case 'AUTHENTICATION_REGISTRATION_FAILURE':
-    case 'AUTHENTICATION_PASSWORD_RESET_HASH_FAILURE':
-    case 'AUTHENTICATION_PASSWORD_SAVE_FAILURE':
-    case 'USER_LOOKUP_FAILURE': {
-        const newState = Object.assign({}, initialState);
-        newState.isError = true;
-        newState.error = action.error;
-        return newState;
-    }
-    case 'ERROR_CLEARED': {
-        const newState = Object.assign({}, initialState);
-        return newState;
-    }
-    default: {
-        return state;
-    }
-    }
+  switch (action.type) {
+  case 'AUTHENTICATION_SIGNIN_FAILURE':
+  case 'AUTHENTICATION_SIGNOUT_FAILURE':
+  case 'AUTHENTICATION_REGISTRATION_FAILURE':
+  case 'AUTHENTICATION_PASSWORD_RESET_HASH_FAILURE':
+  case 'AUTHENTICATION_PASSWORD_SAVE_FAILURE':
+  case 'USER_LOOKUP_FAILURE': {
+    const newState = Object.assign({}, initialState);
+    newState.isError = true;
+    newState.error = action.error;
+    return newState;
+  }
+  case 'ERROR_CLEARED': {
+    const newState = Object.assign({}, initialState);
+    return newState;
+  }
+  default: {
+    return state;
+  }
+  }
 }

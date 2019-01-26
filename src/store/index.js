@@ -8,22 +8,22 @@ import DevTools from '../components/shared/DevTools';
 const loggerMiddleware = createLogger();
 
 const enhancer = compose(
-    applyMiddleware(
-        thunkMiddleware,
-        loggerMiddleware,
-    ),
-    DevTools.instrument(),
+  applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware,
+  ),
+  DevTools.instrument(),
 );
 
 export default function configureStore(initialState) {
-    const store = createStore(combinedReducers, initialState, enhancer);
+  const store = createStore(combinedReducers, initialState, enhancer);
 
-    // Hot reload reducers
-    if (module.hot) {
-        module.hot.accept('../reducers', () =>
-            store.replaceReducer(combinedReducers),
-        );
-    }
+  // Hot reload reducers
+  if (module.hot) {
+    module.hot.accept('../reducers', () =>
+      store.replaceReducer(combinedReducers),
+    );
+  }
 
-    return store;
+  return store;
 }
